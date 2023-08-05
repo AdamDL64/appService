@@ -1,0 +1,24 @@
+const express = require('express')
+const router = express.Router()
+const { listAll, read, create, update, remove} =require('../Controller/blog')
+const {auth}=require('../Middleware/auth')
+
+
+//middleware
+
+//http://localhost:5000/api/blog/
+
+//show all blog
+router.get('/blog', listAll)
+// router.get('/blog', auth, listAll)
+// //create 
+router.post('/blog', create)
+// //show single  blog
+router.get('/blog/:id', read)
+// //update
+router.put('/blog/:id', update)
+// //delete
+router.delete('/blog/:id', remove)
+
+
+module.exports = router
